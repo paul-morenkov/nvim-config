@@ -15,10 +15,9 @@ return {
     end,
   },
   {
-
-    "HiPhish/nvim-ts-rainbow2",
-    config = function ()
-     require("rainbow-delimiters").setup() 
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("rainbow-delimiters.setup").setup()
     end
   },
 }
