@@ -3,6 +3,9 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+vim.opt.textwidth = 0
+vim.opt.wrapmargin = 0
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
