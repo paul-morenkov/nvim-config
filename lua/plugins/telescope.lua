@@ -8,8 +8,7 @@ if not vim.g.vscode then
         "nvim-telescope/telescope-ui-select.nvim",
         {
           "nvim-telescope/telescope-fzf-native.nvim",
-          build =
-          "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+          build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
           config = function()
             require("telescope").load_extension("fzf")
           end,
@@ -27,8 +26,8 @@ if not vim.g.vscode then
             },
           },
           extensions = {
-            ["ui-select"] = { require("telescope.themes").get_dropdown({}) }
-          }
+            ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
+          },
         }
       end,
       config = function(_, opts)

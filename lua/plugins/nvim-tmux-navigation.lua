@@ -1,0 +1,18 @@
+if not vim.g.vscode then
+	return {
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			local nav = require("nvim-tmux-navigation")
+			nav.setup({ disable_when_zoomed = true })
+
+			vim.keymap.set("n", "<C-h>", nav.NvimTmuxNavigateLeft)
+			vim.keymap.set("n", "<C-j>", nav.NvimTmuxNavigateDown)
+			vim.keymap.set("n", "<C-k>", nav.NvimTmuxNavigateUp)
+			vim.keymap.set("n", "<C-l>", nav.NvimTmuxNavigateRight)
+			vim.keymap.set("n", "<C-\\>", nav.NvimTmuxNavigateLastActive)
+			vim.keymap.set("n", "<C-Space>", nav.NvimTmuxNavigateNext)
+		end,
+	}
+else
+	return {}
+end
