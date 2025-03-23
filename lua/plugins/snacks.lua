@@ -492,4 +492,5 @@ return {
       mode = { "n", "t" },
     },
   },
+  cond = not vim.g.vscode
 }

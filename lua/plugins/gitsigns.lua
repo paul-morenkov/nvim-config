@@ -1,4 +1,3 @@
-if not vim.g.vscode then
   return {
     "lewis6991/gitsigns.nvim",
     opts = {
@@ -10,7 +9,6 @@ if not vim.g.vscode then
         changedelete = { text = "~" },
       },
     },
+    cond = not vim.g.vscode
   }
-else return {}
-end
 

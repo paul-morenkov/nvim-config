@@ -1,7 +1,4 @@
-if not vim.g.vscode then
 	return {
-		-- "mg979/vim-visual-multi",
+		"mg979/vim-visual-multi",
+    cond = not vim.g.vscode
 	}
-else
-	return {}
-end

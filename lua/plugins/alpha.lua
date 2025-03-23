@@ -1,4 +1,3 @@
-if not vim.g.vscode then
 	return {
     "goolord/alpha-nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -8,6 +7,5 @@ if not vim.g.vscode then
 
 			require("alpha").setup(startify.config)
 		end,
+    cond = not vim.g.vscode
 	}
-else return {}
-end

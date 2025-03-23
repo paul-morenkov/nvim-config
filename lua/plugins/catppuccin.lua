@@ -1,4 +1,3 @@
-if not vim.g.vscode then
 	return {
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -6,7 +5,5 @@ if not vim.g.vscode then
 		config = function()
 			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
+    cond = not vim.g.vscode
 	}
-else
-	return {}
-end
