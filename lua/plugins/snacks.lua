@@ -2,13 +2,34 @@
 
 return {
 	"folke/snacks.nvim",
-	priority = 1000,
+	requirements = {
+		"nvim-tree/nvim-web-devicons",
+	},
+	priority = 1001,
 	lazy = false,
 	opts = {
-		picker = { enabled = true },
 		explorer = { enabled = true },
-		statuscolumns = { enabled = true },
+		indent = {
+			enabled = true,
+			animate = {
+				duration = {
+					total = 100,
+				},
+			},
+		},
+		input = { enabled = true },
+		notifier = { enabled = true },
+		picker = {
+			enabled = true,
+			win = {
+				input = { keys = { ["<leader>v"] = "edit_vsplit" } },
+				list = { keys = { ["<leader>v"] = "edit_vsplit" } },
+			},
+		},
+		statuscolumn = { enabled = true },
+		words = { enabled = true },
 	},
+
 	keys = { -- Top Pickers & Explorer
 		{
 			"<leader><space>",
