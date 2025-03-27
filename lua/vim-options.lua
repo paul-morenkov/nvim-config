@@ -101,7 +101,7 @@ vim.keymap.set("n", "]i", function()
     severity = {
       vim.diagnostic.severity.INFO,
       vim.diagnostic.severity.HELP,
-    }
+    },
   })
   vim.cmd("norm! zz")
 end, { desc = "Go to next info" })
