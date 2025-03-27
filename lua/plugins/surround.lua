@@ -3,5 +3,5 @@ return {
 	event = "VeryLazy",
 	opts = {},
   -- TODO: is this needed
-	config = true,
+	-- config = true,
 }

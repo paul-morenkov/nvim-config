@@ -376,7 +376,7 @@ return {
       desc = "Goto Implementation",
     },
     {
-      "gy",
+      "<leader>gy",
       function()
         Snacks.picker.lsp_type_definitions()
       end,
@@ -492,5 +492,16 @@ return {
       mode = { "n", "t" },
     },
   },
-  cond = not vim.g.vscode
+
+  init = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      callback = function()
+        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+        Snacks.toggle.diagnostics():map("<leader>ud")
+        Snacks.toggle.inlay_hints():map("<leader>uh")
+      end,
+    })
+  end,
+  cond = not vim.g.vscode,
 }
