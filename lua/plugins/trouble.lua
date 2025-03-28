@@ -5,7 +5,7 @@
 		opts = {},
 		keys = {
 			{
-				"<leader>td",
+				"<leader>tD",
 				"<Cmd>Trouble diagnostics toggle focus=true<CR>",
 				desc = "Trouble open diagnostics",
 			},

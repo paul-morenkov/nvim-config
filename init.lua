@@ -12,9 +12,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 
-vim.lsp.enable({ "clangd", "lua-ls" })
-vim.diagnostic.config({ virtual_text = true })
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action menu" })
 
 require("lazy").setup({
   spec = {
