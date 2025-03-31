@@ -2,5 +2,6 @@ return {
 	"kylechui/nvim-surround",
 	event = "VeryLazy",
 	opts = {},
-	config = true,
+  -- TODO: is this needed
+	-- config = true,
 }

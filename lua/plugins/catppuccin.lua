@@ -1,4 +1,3 @@
-if not vim.g.vscode then
 	return {
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -29,7 +28,5 @@ if not vim.g.vscode then
 				},
 			})
 		end,
+    cond = not vim.g.vscode
 	}
-else
-	return {}
-end

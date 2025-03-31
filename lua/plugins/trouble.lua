@@ -1,4 +1,3 @@
-if not vim.g.vscode then
 	return {
 		"folke/trouble.nvim",
 
@@ -16,7 +15,5 @@ if not vim.g.vscode then
 				desc = "Trouble open symbols",
 			},
 		},
+    cond = not vim.g.vscode
 	}
-else
-	return {}
-end

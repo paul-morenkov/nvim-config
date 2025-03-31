@@ -3,6 +3,9 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+vim.opt.textwidth = 0
+vim.opt.wrapmargin = 0
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -60,31 +63,52 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Custom Escape sequences
 vim.keymap.set("i", "kj", "<Esc>")
--- Move between warnings and errors
+-- Move between errors
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  vim.cmd("norm! zz")
 end, { desc = "Go to prev error" })
 
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  vim.cmd("norm! zz")
 end, { desc = "Go to next error" })
 
+-- Move between warnings
 vim.keymap.set("n", "[w", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+  vim.cmd("norm! zz")
 end, { desc = "Go to prev warning" })
 
 vim.keymap.set("n", "]w", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+  vim.cmd("norm! zz")
 end, { desc = "Go to next warning" })
 
+-- move between info messages
+vim.keymap.set("n", "[i", function()
+  vim.diagnostic.goto_prev({
+    severity = {
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HELP,
+    },
+  })
+  vim.cmd("norm! zz")
+end, { desc = "Go to prev info" })
+
+vim.keymap.set("n", "]i", function()
+  vim.diagnostic.goto_next({
+    severity = {
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HELP,
+    },
+  })
+  vim.cmd("norm! zz")
+end, { desc = "Go to next info" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank({ timeout = 100 })
-	end,
-	desc = "Briefly highlight yanked region",
+  callback = function()
+    vim.highlight.on_yank({ timeout = 100 })
+  end,
+  desc = "Briefly highlight yanked region",
 })
