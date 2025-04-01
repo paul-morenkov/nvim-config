@@ -2,13 +2,16 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		priority = 1000,
+    opts = {
+      transparent = false,
+    },
 		cond = not vim.g.vscode,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		opts = {
-			transparent_mode = false,
+			transparent_mode = true,
 			contrast = "hard",
 			overrides = {
 				LspReferenceText = { bg = "#49443C" },

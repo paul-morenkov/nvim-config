@@ -25,6 +25,7 @@ return {
           vim.keymap.set("n", "<leader>cr", vim.cmd.Crun, b)
           vim.keymap.set("n", "<leader>cb", vim.cmd.Cbuild, b)
           vim.keymap.set("n", "<leader>cc", vim.cmd.Ccheck, b)
+          vim.keymap.set("n", "<leader>ct", vim.cmd.Ctest, b)
         end,
 
         default_settings = {
