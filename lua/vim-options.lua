@@ -116,8 +116,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- LSP setup
 -- configuration occurs in `nvim/lsp/<lsp-name>.lua` files
 -- TODO: potentially move this into an LspAttach event?
-vim.lsp.enable({ "clangd", "lua-ls" })
-vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
+if not vim.g.vscode then
+  vim.lsp.enable({ "clangd", "lua-ls", "pyright" })
+  vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
+end
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action menu" })
 
 -- Other formatting
