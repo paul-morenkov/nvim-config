@@ -17,6 +17,10 @@ return {
 				LspReferenceText = { bg = "#49443C" },
 			},
 		},
+    config = function(_, opts)
+      require("gruvbox").setup(opts)
+      vim.cmd.colorscheme("gruvbox")
+    end,
 		cond = not vim.g.vscode,
 	},
 	{

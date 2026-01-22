@@ -9,6 +9,10 @@ return {
 	lazy = false,
 
 	opts = {
+    bigfile = {
+      enabled = true,
+      size = 10 * 1024 * 1024,
+    },
 		explorer = { enabled = true },
 		indent = {
 			enabled = true,
