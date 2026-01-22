@@ -19,6 +19,4 @@ return {
 			desc = "Flash Treesiter",
 		},
 	},
-
-	cond = not vim.g.vscode,
 }
