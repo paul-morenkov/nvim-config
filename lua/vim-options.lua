@@ -65,60 +65,73 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("i", "kj", "<Esc>")
 -- Move between errors
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  vim.cmd("norm! zz")
 end, { desc = "Go to prev error" })
 
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  vim.cmd("norm! zz")
 end, { desc = "Go to next error" })
 
 -- Move between warnings
 vim.keymap.set("n", "[w", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+  vim.cmd("norm! zz")
 end, { desc = "Go to prev warning" })
 
 vim.keymap.set("n", "]w", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+  vim.cmd("norm! zz")
 end, { desc = "Go to next warning" })
 
 -- move between info messages
 vim.keymap.set("n", "[i", function()
-	vim.diagnostic.goto_prev({
-		severity = {
-			vim.diagnostic.severity.INFO,
-			vim.diagnostic.severity.HELP,
-		},
-	})
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_prev({
+    severity = {
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HELP,
+    },
+  })
+  vim.cmd("norm! zz")
 end, { desc = "Go to prev info" })
 
 vim.keymap.set("n", "]i", function()
-	vim.diagnostic.goto_next({
-		severity = {
-			vim.diagnostic.severity.INFO,
-			vim.diagnostic.severity.HELP,
-		},
-	})
-	vim.cmd("norm! zz")
+  vim.diagnostic.goto_next({
+    severity = {
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HELP,
+    },
+  })
+  vim.cmd("norm! zz")
 end, { desc = "Go to next info" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank({ timeout = 100 })
-	end,
-	desc = "Briefly highlight yanked region",
+  callback = function()
+    vim.highlight.on_yank({ timeout = 100 })
+  end,
+  desc = "Briefly highlight yanked region",
 })
 
 -- LSP setup
 -- configuration occurs in `nvim/lsp/<lsp-name>.lua` files
 -- TODO: potentially move this into an LspAttach event?
-vim.lsp.enable({ "clangd", "lua-ls", "pyright", "ruff"})
-vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
+vim.lsp.enable({ "clangd", "lua-ls", "pyright", "ruff" })
+vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action menu" })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client)
+    if client == nil then
+      return
+    end
+    if client.name == "ruff" then
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+})
 
 -- Other formatting
 vim.opt.winborder = "rounded"
