@@ -115,9 +115,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- LSP setup
 -- configuration occurs in `nvim/lsp/<lsp-name>.lua` files
--- TODO: potentially move this into an LspAttach event?
-vim.lsp.enable({ "clangd", "lua-ls", "pyright", "ruff" })
-vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client == nil then
+			return
+		end
+		if client.name == "ruff" then
+			-- Disable hover in favor of Pyright
+			client.server_capabilities.hoverProvider = false
+		end
+	end,
+	desc = "LSP: Disable hover capability from Ruff",
+})
+
+vim.lsp.enable({ "clangd", "lua-ls", "basedpyright", "ruff", "esbonio"})
+vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action menu" })
 
 vim.api.nvim_create_autocmd("LspAttach", {

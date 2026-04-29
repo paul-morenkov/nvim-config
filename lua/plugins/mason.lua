@@ -6,7 +6,8 @@ return {
 		opts = {
 			PATH = "prepend",
 			ensure_installed = {
-				"pyright",
+				"based-pyright",
+				"ruff",
 				"rust-analyzer",
 			},
 			ui = {

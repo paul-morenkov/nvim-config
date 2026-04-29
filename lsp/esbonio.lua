@@ -1,0 +1,5 @@
+return {
+	cmd = { "esbonio" },
+	filetypes = { "rst" },
+	root_markers = { ".git" },
+}
