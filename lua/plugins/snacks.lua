@@ -365,7 +365,7 @@ return {
 			desc = "Goto Declaration",
 		},
 		{
-			"gr",
+			"gR",
 			function()
 				Snacks.picker.lsp_references()
 			end,
@@ -459,7 +459,7 @@ return {
 			mode = { "n", "v" },
 		},
 		{
-			"<leader>gg",
+			"<leader>lg",
 			function()
 				Snacks.lazygit()
 			end,
