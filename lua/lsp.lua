@@ -4,6 +4,5 @@ vim.lsp.config("*", { capabilities = capabilities })
 
 vim.lsp.enable({
 	"lua_ls",
-	"rust_analyzer",
 	"basedpyright",
 })
