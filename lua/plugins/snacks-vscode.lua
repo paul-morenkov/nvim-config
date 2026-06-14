@@ -12,7 +12,7 @@ Snacks.setup({
 	dim = { enabled = false },
 	explorer = { enabled = false },
 	image = { enabled = false },
-	indent = { enabled = true },
+	indent = { enabled = false },
 	input = { enabled = false },
 	layout = { enabled = false },
 	notifier = { enabled = false },
@@ -62,8 +62,8 @@ vim.api.nvim_create_autocmd("User", {
 local keymaps = {
   { "<leader>l",       function() vim.cmd("Lazy") end,                 desc = "Open Lazy tab", },
   -- find
-  { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "Delete buffer",            mode = { "n" }, },
-  { "<leader>bo", function() Snacks.bufdelete.other() end,                                desc = "Delete other buffers",     mode = { "n" }, },
+  { "<leader>bd", function() Snacks.bufdelete() end,                   desc = "Delete buffer",            mode = { "n" }, },
+  { "<leader>bo", function() Snacks.bufdelete.other() end,             desc = "Delete other buffers",     mode = { "n" }, },
 }
 
 for _, map in ipairs(keymaps) do

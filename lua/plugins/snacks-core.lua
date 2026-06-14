@@ -12,7 +12,14 @@ Snacks.setup({
 	dim = { enabled = true },
 	explorer = { enabled = true, replace_netrw = true },
 	image = { enabled = true },
-	indent = { enabled = true },
+	indent = {
+		animate = {
+			duration = {
+				step = 10,
+				total = 500,
+			},
+		},
+	},
 	input = { enabled = true },
 	layout = { enabled = true },
 	notifier = { enabled = true },
