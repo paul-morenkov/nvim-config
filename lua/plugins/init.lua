@@ -9,8 +9,8 @@ if vim.g.vscode then
 	require("plugins.mini-vscode")
 else
 	-- Only load these plugins if not using VS Code
-	require("plugins.snacks")
-	require("plugins.mini")
+	require("plugins.snacks-core")
+	require("plugins.mini-core")
 	require("plugins.gruvbox")
 	require("plugins.mason")
 	require("plugins.nvim-lspconfig")
