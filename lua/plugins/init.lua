@@ -11,7 +11,7 @@ else
 	-- Only load these plugins if not using VS Code
 	require("plugins.snacks-core")
 	require("plugins.mini-core")
-	require("plugins.gruvbox")
+	require("plugins.colorschemes")
 	require("plugins.mason")
 	require("plugins.nvim-lspconfig")
 	require("plugins.treesitter")
