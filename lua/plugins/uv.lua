@@ -1,10 +1,5 @@
-return {
-  "benomahony/uv.nvim",
-  dependenices = {
-    "folke/snacks.nvim",
-  },
-  opts = {
-    picker_integration = true,
-  },
-  cond = not vim.g.vscode,
-}
+vim.pack.add({ "https://github.com/benomahony/uv.nvim" })
+
+require("uv").setup({
+	picker_integration = true,
+})

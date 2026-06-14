@@ -22,4 +22,5 @@ else
 	require("plugins.blink-cmp")
 	require("plugins.alpha")
 	require("plugins.dap")
+	require("plugins.uv")
 end
