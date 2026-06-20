@@ -14,7 +14,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
--- Move betwee wrapped lines with j/k
+-- Move between wrapped lines with j/k
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 

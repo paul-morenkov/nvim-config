@@ -21,6 +21,7 @@ else
 	require("plugins.nvim-tmux-navigation")
 	require("plugins.blink-cmp")
 	require("plugins.alpha")
-	require("plugins.dap")
 	require("plugins.uv")
+	require("plugins.obsidian-nvim")
+	require("plugins.dap")
 end
