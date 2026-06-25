@@ -128,14 +128,13 @@ Snacks.setup({
 	},
 })
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "VeryLazy",
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
 	callback = function()
 		Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
 		Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-		Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
 		Snacks.toggle.diagnostics():map("<leader>td")
-		Snacks.toggle.line_number():map("<leader>ul")
+		Snacks.toggle.inlay_hints():map("<leader>th")
 		Snacks.toggle
 			.option(
 				"conceallevel",

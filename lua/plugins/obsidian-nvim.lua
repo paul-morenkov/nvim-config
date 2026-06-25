@@ -11,6 +11,7 @@
 -- Edit this single constant if your vault path differs. It's reused below
 -- both for the workspace and for scoping the in-note keymaps.
 local VAULT_PATH = vim.fn.expand("/mnt/d/Obsidian/Neovault")
+local INBOX = "inbox"
 
 --------------------------------------------------------------------------------
 -- 1. Install
@@ -37,7 +38,7 @@ require("obsidian").setup({
 	-- New notes land in inbox/ by default, so capture never requires a filing
 	-- decision. Sweep the inbox on a schedule (weekly is plenty).
 	new_notes_location = "notes_subdir",
-	notes_subdir = "inbox",
+	notes_subdir = INBOX,
 
 	-- Human-readable filenames (slugified title) instead of Zettelkasten
 	-- timestamp IDs, so the file tree stays sane when browsed in the GUI.
@@ -49,12 +50,20 @@ require("obsidian").setup({
 		return tostring(os.time())
 	end,
 
+	note_path_func = function(spec)
+		local path = spec.dir / tostring(spec.id)
+		return path:with_suffix(".md", true)
+	end,
+
 	-- Wikilinks: name-based, auto-update on move/rename, native in both
 	-- Neovim and the Obsidian GUI. Display the title, carry the ID for
 	-- unambiguous resolution.
 	link = {
 		style = "wiki",
 		format = "shortest",
+	},
+	checkbox = {
+		order = { " ", "x" },
 	},
 
 	-- Minimal frontmatter: aliases + tags + a creation date. You fill the rest.

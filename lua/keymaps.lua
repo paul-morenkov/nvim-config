@@ -29,31 +29,28 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "[d", function()
 	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
 	vim.cmd("norm! zz")
+	vim.diagnostic.open_float()
 end, { desc = "Jump to prev error" })
 
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
 	vim.cmd("norm! zz")
+	vim.diagnostic.open_float()
 end, { desc = "Jump to next error" })
 
 -- Move between warnings
 vim.keymap.set("n", "[w", function()
 	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN })
 	vim.cmd("norm! zz")
+	vim.diagnostic.open_float()
 end, { desc = "Jump to prev warning" })
 
 vim.keymap.set("n", "]w", function()
 	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.WARN })
 	vim.cmd("norm! zz")
+	vim.diagnostic.open_float()
 end, { desc = "Jump to next warning" })
 
-vim.keymap.set("n", "[i", function()
-	print("testing")
-end)
-
-vim.keymap.set("n", "]i", function()
-	print("testing")
-end)
 -- -- move between info messages
 -- vim.keymap.set("n", "[i", function()
 -- 	vim.diagnostic.jump({
