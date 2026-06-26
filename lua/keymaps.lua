@@ -27,28 +27,24 @@ vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Move between errors
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR, on_jump = vim.diagnostic.open_float })
 	vim.cmd("norm! zz")
-	vim.diagnostic.open_float()
 end, { desc = "Jump to prev error" })
 
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR, on_jump = vim.diagnostic.open_float })
 	vim.cmd("norm! zz")
-	vim.diagnostic.open_float()
 end, { desc = "Jump to next error" })
 
 -- Move between warnings
 vim.keymap.set("n", "[w", function()
-	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN })
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN, on_jump = vim.diagnostic.open_float })
 	vim.cmd("norm! zz")
-	vim.diagnostic.open_float()
 end, { desc = "Jump to prev warning" })
 
 vim.keymap.set("n", "]w", function()
-	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.WARN })
+	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.WARN, on_jump = vim.diagnostic.open_float })
 	vim.cmd("norm! zz")
-	vim.diagnostic.open_float()
 end, { desc = "Jump to next warning" })
 
 -- -- move between info messages

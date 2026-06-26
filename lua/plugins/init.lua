@@ -1,6 +1,5 @@
 -- Always load these plugins
 require("plugins.nvim-surround")
-require("plugins.rustaceanvim")
 require("plugins.flash")
 
 if vim.g.vscode then
@@ -22,6 +21,8 @@ else
 	require("plugins.blink-cmp")
 	require("plugins.alpha")
 	require("plugins.uv")
+	require("plugins.rustaceanvim")
 	require("plugins.obsidian-nvim")
 	require("plugins.dap")
 end
+
