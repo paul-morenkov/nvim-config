@@ -11,19 +11,19 @@ vim.opt.wrapmargin = 0
 vim.opt.wrap = false -- TODO: Reenable this for .md and .txt
 vim.opt.backspace = { "indent", "eol", "start" }
 
--- Configure clipboard for WSL
-vim.g.clipboard = {
-	name = "win32yank",
-	copy = {
-		["+"] = "win32yank.exe -i --crlf",
-		["*"] = "win32yank.exe -i --crlf",
-	},
-	paste = {
-		["+"] = "win32yank.exe -o --lf",
-		["*"] = "win32yank.exe -o --lf",
-	},
-	cache_enabled = 0,
-}
+-- -- Configure clipboard for WSL
+-- vim.g.clipboard = {
+-- 	name = "win32yank",
+-- 	copy = {
+-- 		["+"] = "win32yank.exe -i --crlf",
+-- 		["*"] = "win32yank.exe -i --crlf",
+-- 	},
+-- 	paste = {
+-- 		["+"] = "win32yank.exe -o --lf",
+-- 		["*"] = "win32yank.exe -o --lf",
+-- 	},
+-- 	cache_enabled = 0,
+-- }
 vim.opt.clipboard = "unnamedplus"
 
 -- main options
