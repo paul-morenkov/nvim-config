@@ -1,8 +1,2 @@
-return {
-  "williamboman/mason.nvim",
-  lazy = false,
-  opts = {
-    PATH = "prepend",
-  },
-  cond = not vim.g.vscode,
-}
+vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
+require("mason").setup()
